@@ -890,7 +890,7 @@ function Certificate({ name, score, reset }: { name: string, score: number, rese
   
   useEffect(() => {
     if (name !== '教师测试账号') {
-      fetch('https://quickform.cn/api/y9jvjcpvyo', {
+      fetch('/api/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

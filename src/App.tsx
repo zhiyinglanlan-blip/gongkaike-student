@@ -887,6 +887,19 @@ function Level4({ addScore, onPass, playerName }: { addScore: (n: number) => voi
 
 function Certificate({ name, score, reset }: { name: string, score: number, reset: () => void }) {
   const confettis = Array.from({ length: 60 });
+  
+  useEffect(() => {
+    if (name !== '教师测试账号') {
+      fetch('https://quickform.cn/api/y9jvjcpvyo', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name, score })
+      }).catch(console.error);
+    }
+  }, [name, score]);
+
   return (
     <div className="fixed inset-0 flex flex-col items-center justify-center bg-slate-950 overflow-hidden z-[100]">
       {/* Particle System internal to component */}
